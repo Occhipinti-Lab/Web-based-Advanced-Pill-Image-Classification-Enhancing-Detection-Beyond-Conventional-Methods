@@ -1,0 +1,31 @@
+1- Installing anaconda
+
+2- Creating new env with python 3.6 as fastai version 1 only runs on 3.6
+
+commond:             conda create -n <env name> python=3.6
+
+3- Activating the env we created
+
+Commond:            conda activate <env name>
+	
+4- Installing torch
+                   a) commond for GPU:
+
+                   conda install pytorch==1.8.1 torchvision==0.9.1 torchaudio==0.8.1 cudatoolkit=11.3 -c pytorch -c conda-forge
+
+                   b) Commond for CPU:
+
+                   conda install pytorch==1.8.1 torchvision==0.9.1 torchaudio==0.8.1 -c pytorch
+5- Installing Fastai
+
+commond:           pip install fastai==1.0.61
+
+6- Placing the data folder in right directory with code files
+
+
+
+
+
+
+
+
