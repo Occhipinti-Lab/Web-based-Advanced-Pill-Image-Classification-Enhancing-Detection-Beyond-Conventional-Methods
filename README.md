@@ -11,3 +11,5 @@ For Using WebApp steps are as follow:
 1. Select "choose file" and press "submit" to upload the picture.
 2. The picture will upload to the app, and the model will process it for classification.
 3. The app will display the results to the users.
+
+Use System Requirnments.txt file in Model folder for installing required libraries.
