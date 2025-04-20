@@ -11,18 +11,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <style>
-    .overlay{
-        display: none;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        /* background: rgba(255,255,255,0.8) url("https://raw.githubusercontent.com/projectz-tayyab/photo_app/main/loader.gif") center no-repeat;*/
-        background: rgba(255,255,255,0.8) url("/static/loader/loading.gif") center no-repeat;
-    }
+    .content-left {
+        text-align: left; /* Ensures text and inline elements within are left-aligned */
+        width: 100%; /* Adjust width as needed */
+                    }
+   .hero-section {
+            position: relative;
+            background: url("static/second.jpg") no-repeat center center;
+            background-size: cover;
+            color: #dfd3d3; /* Adjust text color to improve visibility */
+            padding: 100px 0; /* Adjust padding to fit your design */
+        }
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4); /* Adjust the black overlay opacity as needed */
+            z-index: 1;
+        }
+        .container {
+            position: relative;
+            z-index: 2; /* Ensure content is above the overlay */
+        }
     body{
+      padding-top: 20px;
         text-align: center;
     }
     /* Turn off scrollbar when body element has the loading class */
@@ -43,14 +58,21 @@
 
 </head>
 <body>
+  <section class="hero-section text-center">
+    <div class="container">
+        <h1 class="display-4">Web-based Advanced Pill Image Classification: Enhancing Detection Beyond Conventional Methods</h1>
+
+    </div>
+</section>
+
 <div class="overlay"></div>
 <div class="container">
   <form id="myForm">
-  <h2>Pill Classification</h2>
+  <h2>Pill Classification Pipeline</h2>
 
 
     <div class="form-group">
-      <label for="file">Select File:</label>
+      <label for="file">Select File:(png/jpeg/jpg)</label>
       <input type="file"  class="form-control" id="file" name="file">
 <!--      <input type="file" accept="text/*" class="form-control" id="file" name="file">-->
     </div>
@@ -65,8 +87,32 @@
   <h3 class="sh_id"></h3>
 
   <!-- <caption>Tickets Data</caption> -->
+  <div class="content-left">
+       <h3>Example Images</h3>
+<p>Download the Images Below For Initial Testing.  </p>
+  </div>
+
+ <!-- Image Row Container -->
+  <div class="image-row" style="display: flex; justify-content: space-around;margin-bottom: 30px;">
+    <div class="image-container">
+      <img src="static/Apha-Bevagy.jpg" alt="Image 1" style="width: 100px; height: 100;">
+      <label for="image1">Apha-Bevagyl</label>
+    </div>
+    <div class="image-container">
+      <img src="static/3B-Medi.jpg" alt="Image 3" style="width: 100px; height: 100;">
+      <label for="image3">3B-Medi</label>
+    </div>
+     <div class="image-container">
+      <img src="static/Agifovir.jpg" alt="Image 3" style="width: 100px; height: 100;">
+      <label for="image3">Agifovir</label>
+    </div>
+    <!--<div class="image-container" style="width: 100px; height: 100px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center;">-->
+    <!--  <span>New Image</span>-->
+    <!--</div>-->
+  </div>
 
 </div>
+
 
 <script>
 
@@ -76,7 +122,7 @@ $( document ).ready(function() {
 });
 
 function myfun(){
- 
+
  $("#dowload").hide();
 
 }
@@ -91,12 +137,12 @@ function myFunction() {
    alert("Please select the file");
    }
   else {
-  
+
 
     var form_data = new FormData();
     form_data.append("file", image_path);
     $.ajax({
-        url: "/",
+        url: "/index",
         type: "POST",
         data: form_data,
         contentType: false,
@@ -121,8 +167,9 @@ function myFunction() {
 
             if ( flage == 'True')
              {
+              text_val='The provided drug has been classified as: ' + text_val;
               $('.sh_id').text(text_val);
-              
+
              }
              else
              {
@@ -132,16 +179,16 @@ function myFunction() {
 
         },
         complete: function (result) {
-          
+
 
             //  $("body").removeClass("loading");
 
             //  $('#myForm')[0].reset();
-             
-             
 
-            
-             
+
+
+
+
 
 
              // window.location.href = "first.html";
