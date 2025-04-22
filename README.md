@@ -1,4 +1,4 @@
-#Web-based-Advanced-Pill-Image-Classification-Enhancing-Detection-Beyond-Conventional-Methods
+**Web-based-Advanced-Pill-Image-Classification-Enhancing-Detection-Beyond-Conventional-Methods**
 
 This GitHub repository contains the data files and code for the Machine Learning model and Web application used in "Web-based Advanced Pill Image Classification: Enhancing Detection Beyond Conventional Methods".
 The files are organised into two folders:
